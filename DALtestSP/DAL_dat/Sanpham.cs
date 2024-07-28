@@ -13,7 +13,7 @@ public partial class Sanpham
 
     public int Slton { get; set; }
 
-    public bool? Trangthai { get; set; }
+    public bool? Trangthai { get; set; }= null!;
 
     public virtual ICollection<Cthd> Cthds { get; set; } = new List<Cthd>();
 

@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            txt_tenmau = new TextBox();
             txt_mamau = new TextBox();
             label2 = new Label();
             label1 = new Label();
             btn_capnhapmau = new Button();
             btn_themmau = new Button();
             dtg_ms = new DataGridView();
-            txt_tenmau = new TextBox();
             groupBox2 = new GroupBox();
             txt_size = new TextBox();
             txt_makc = new TextBox();
@@ -45,8 +45,8 @@
             btn_addkc = new Button();
             dtg_kc = new DataGridView();
             groupBox3 = new GroupBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            txt_tenth = new TextBox();
+            txt_th = new TextBox();
             label5 = new Label();
             label6 = new Label();
             btn_upth = new Button();
@@ -87,6 +87,13 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Màu sắc";
             // 
+            // txt_tenmau
+            // 
+            txt_tenmau.Location = new Point(103, 75);
+            txt_tenmau.Name = "txt_tenmau";
+            txt_tenmau.Size = new Size(201, 27);
+            txt_tenmau.TabIndex = 6;
+            // 
             // txt_mamau
             // 
             txt_mamau.Location = new Point(103, 32);
@@ -120,6 +127,7 @@
             btn_capnhapmau.TabIndex = 2;
             btn_capnhapmau.Text = "Cập nhập";
             btn_capnhapmau.UseVisualStyleBackColor = true;
+            btn_capnhapmau.Click += btn_capnhapmau_Click;
             // 
             // btn_themmau
             // 
@@ -129,6 +137,7 @@
             btn_themmau.TabIndex = 1;
             btn_themmau.Text = "Thêm";
             btn_themmau.UseVisualStyleBackColor = true;
+            btn_themmau.Click += btn_themmau_Click;
             // 
             // dtg_ms
             // 
@@ -138,13 +147,7 @@
             dtg_ms.RowHeadersWidth = 51;
             dtg_ms.Size = new Size(474, 188);
             dtg_ms.TabIndex = 0;
-            // 
-            // txt_tenmau
-            // 
-            txt_tenmau.Location = new Point(103, 75);
-            txt_tenmau.Name = "txt_tenmau";
-            txt_tenmau.Size = new Size(201, 27);
-            txt_tenmau.TabIndex = 6;
+            dtg_ms.CellClick += dtg_ms_CellClick;
             // 
             // groupBox2
             // 
@@ -202,6 +205,7 @@
             btn_upkc.TabIndex = 2;
             btn_upkc.Text = "Cập nhập";
             btn_upkc.UseVisualStyleBackColor = true;
+            btn_upkc.Click += btn_upkc_Click;
             // 
             // btn_addkc
             // 
@@ -211,6 +215,7 @@
             btn_addkc.TabIndex = 1;
             btn_addkc.Text = "Thêm";
             btn_addkc.UseVisualStyleBackColor = true;
+            btn_addkc.Click += btn_addkc_Click;
             // 
             // dtg_kc
             // 
@@ -220,11 +225,12 @@
             dtg_kc.RowHeadersWidth = 51;
             dtg_kc.Size = new Size(474, 188);
             dtg_kc.TabIndex = 0;
+            dtg_kc.CellClick += dtg_kc_CellClick;
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(textBox1);
-            groupBox3.Controls.Add(textBox2);
+            groupBox3.Controls.Add(txt_tenth);
+            groupBox3.Controls.Add(txt_th);
             groupBox3.Controls.Add(label5);
             groupBox3.Controls.Add(label6);
             groupBox3.Controls.Add(btn_upth);
@@ -237,19 +243,19 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "Thương hiệu";
             // 
-            // textBox1
+            // txt_tenth
             // 
-            textBox1.Location = new Point(140, 77);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(201, 27);
-            textBox1.TabIndex = 6;
+            txt_tenth.Location = new Point(140, 77);
+            txt_tenth.Name = "txt_tenth";
+            txt_tenth.Size = new Size(201, 27);
+            txt_tenth.TabIndex = 6;
             // 
-            // textBox2
+            // txt_th
             // 
-            textBox2.Location = new Point(140, 32);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(201, 27);
-            textBox2.TabIndex = 5;
+            txt_th.Location = new Point(140, 32);
+            txt_th.Name = "txt_th";
+            txt_th.Size = new Size(201, 27);
+            txt_th.TabIndex = 5;
             // 
             // label5
             // 
@@ -277,6 +283,7 @@
             btn_upth.TabIndex = 2;
             btn_upth.Text = "Cập nhập";
             btn_upth.UseVisualStyleBackColor = true;
+            btn_upth.Click += btn_upth_Click;
             // 
             // btn_addth
             // 
@@ -286,6 +293,7 @@
             btn_addth.TabIndex = 1;
             btn_addth.Text = "Thêm";
             btn_addth.UseVisualStyleBackColor = true;
+            btn_addth.Click += btn_addth_Click;
             // 
             // dtg_th
             // 
@@ -295,6 +303,7 @@
             dtg_th.RowHeadersWidth = 51;
             dtg_th.Size = new Size(474, 188);
             dtg_th.TabIndex = 0;
+            dtg_th.CellClick += dtg_th_CellClick;
             // 
             // groupBox4
             // 
@@ -352,6 +361,7 @@
             btn_suaxx.TabIndex = 2;
             btn_suaxx.Text = "Cập nhập";
             btn_suaxx.UseVisualStyleBackColor = true;
+            btn_suaxx.Click += btn_suaxx_Click;
             // 
             // btn_themxx
             // 
@@ -361,6 +371,7 @@
             btn_themxx.TabIndex = 1;
             btn_themxx.Text = "Thêm";
             btn_themxx.UseVisualStyleBackColor = true;
+            btn_themxx.Click += btn_themxx_Click;
             // 
             // dtg_XX
             // 
@@ -370,6 +381,7 @@
             dtg_XX.RowHeadersWidth = 51;
             dtg_XX.Size = new Size(474, 188);
             dtg_XX.TabIndex = 0;
+            dtg_XX.CellClick += dtg_XX_CellClick;
             // 
             // btn_back
             // 
@@ -379,6 +391,7 @@
             btn_back.TabIndex = 4;
             btn_back.Text = "Quay lại";
             btn_back.UseVisualStyleBackColor = true;
+            btn_back.Click += btn_back_Click;
             // 
             // CTSP
             // 
@@ -426,8 +439,8 @@
         private Button btn_addkc;
         private DataGridView dtg_kc;
         private GroupBox groupBox3;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox txt_tenth;
+        private TextBox txt_th;
         private Label label5;
         private Label label6;
         private Button btn_upth;

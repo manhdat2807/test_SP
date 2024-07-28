@@ -45,14 +45,16 @@
             btn_updatesp = new Button();
             rbtn_DB = new RadioButton();
             rbtn_hethang = new RadioButton();
+            groupBox1 = new GroupBox();
             ((System.ComponentModel.ISupportInitialize)dtg_sp).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dtg_CTSP).BeginInit();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // dtg_sp
             // 
             dtg_sp.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtg_sp.Location = new Point(600, 12);
+            dtg_sp.Location = new Point(600, 52);
             dtg_sp.Name = "dtg_sp";
             dtg_sp.RowHeadersWidth = 51;
             dtg_sp.Size = new Size(657, 230);
@@ -77,6 +79,7 @@
             btn_ctsp.TabIndex = 2;
             btn_ctsp.Text = "CTSP";
             btn_ctsp.UseVisualStyleBackColor = true;
+            btn_ctsp.Click += btn_ctsp_Click;
             // 
             // label1
             // 
@@ -117,7 +120,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(43, 222);
+            label5.Location = new Point(43, 245);
             label5.Name = "label5";
             label5.Size = new Size(75, 20);
             label5.TabIndex = 10;
@@ -154,11 +157,12 @@
             // cb_trangthai
             // 
             cb_trangthai.FormattingEnabled = true;
-            cb_trangthai.Items.AddRange(new object[] { "Tất cả", "Đang bán", "Hết hàng" });
-            cb_trangthai.Location = new Point(1091, 260);
+            cb_trangthai.Items.AddRange(new object[] { "Đang bán", "Hết hàng", "Tất cả" });
+            cb_trangthai.Location = new Point(1039, 18);
             cb_trangthai.Name = "cb_trangthai";
             cb_trangthai.Size = new Size(151, 28);
             cb_trangthai.TabIndex = 15;
+            cb_trangthai.SelectedIndexChanged += cb_trangthai_SelectedIndexChanged;
             // 
             // btn_addsp
             // 
@@ -183,7 +187,7 @@
             // rbtn_DB
             // 
             rbtn_DB.AutoSize = true;
-            rbtn_DB.Location = new Point(132, 218);
+            rbtn_DB.Location = new Point(18, 26);
             rbtn_DB.Name = "rbtn_DB";
             rbtn_DB.Size = new Size(95, 24);
             rbtn_DB.TabIndex = 18;
@@ -194,7 +198,7 @@
             // rbtn_hethang
             // 
             rbtn_hethang.AutoSize = true;
-            rbtn_hethang.Location = new Point(296, 218);
+            rbtn_hethang.Location = new Point(142, 26);
             rbtn_hethang.Name = "rbtn_hethang";
             rbtn_hethang.Size = new Size(91, 24);
             rbtn_hethang.TabIndex = 19;
@@ -202,13 +206,22 @@
             rbtn_hethang.Text = "Hết hàng";
             rbtn_hethang.UseVisualStyleBackColor = true;
             // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(rbtn_hethang);
+            groupBox1.Controls.Add(rbtn_DB);
+            groupBox1.Location = new Point(132, 222);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(250, 60);
+            groupBox1.TabIndex = 20;
+            groupBox1.TabStop = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1269, 736);
-            Controls.Add(rbtn_hethang);
-            Controls.Add(rbtn_DB);
+            Controls.Add(groupBox1);
             Controls.Add(btn_updatesp);
             Controls.Add(btn_addsp);
             Controls.Add(cb_trangthai);
@@ -228,6 +241,8 @@
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)dtg_sp).EndInit();
             ((System.ComponentModel.ISupportInitialize)dtg_CTSP).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -251,5 +266,6 @@
         private Button btn_updatesp;
         private RadioButton rbtn_DB;
         private RadioButton rbtn_hethang;
+        private GroupBox groupBox1;
     }
 }

@@ -7,10 +7,13 @@ namespace PRL_testSP
     {
         SPservice spservice = new SPservice();
         private string idwhenclick;
+        List<Sanpham> lisp = new List<Sanpham>();
         public Form1()
         {
 
             InitializeComponent();
+            setingcb();
+            lisp = spservice.GetSanphams().Where(x => x.Trangthai == true).ToList();
             loadSP();
         }
         public void loadSP()
@@ -50,7 +53,10 @@ namespace PRL_testSP
             {
                 rbtn_DB.Checked = true;
             }
-            rbtn_hethang.Checked = true;
+            else
+            {
+                rbtn_hethang.Checked = true;
+            }
         }
 
         private void btn_addsp_Click(object sender, EventArgs e)
@@ -64,7 +70,8 @@ namespace PRL_testSP
             {
                 sp.Trangthai = true;
             }
-            sp.Trangthai = false;
+            else { sp.Trangthai = false; }
+
             MessageBox.Show(spservice.addsp(sp));
             loadSP();
         }
@@ -80,9 +87,40 @@ namespace PRL_testSP
             {
                 sp.Trangthai = true;
             }
-            sp.Trangthai = false;
+            else
+            {
+                sp.Trangthai = false;
+            }
+
             MessageBox.Show(spservice.updatesp(sp));
             loadSP();
+        }
+        private void setingcb()
+        {
+            cb_trangthai.SelectedIndex = 0;
+            cb_trangthai.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
+        private void cb_trangthai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cb_trangthai.SelectedIndex == 0)
+            {
+                lisp = spservice.GetSanphams().Where(x => x.Trangthai == true).ToList();
+            }
+            else if (cb_trangthai.SelectedIndex == 1)
+            {
+                lisp = spservice.GetSanphams().Where(x => x.Trangthai == false).ToList();
+            }
+            else
+            {
+                lisp = spservice.GetSanphams();
+            }
+        }
+
+        private void btn_ctsp_Click(object sender, EventArgs e)
+        {
+            CTSP ct = new CTSP();
+            ct.Show();
         }
     }
 }
